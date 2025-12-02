@@ -97,7 +97,7 @@ const ProductDetail = () => {
       selectedOptions: variant.selectedOptions,
     });
 
-    toast.success("Aggiunto al rituale", {
+    toast.success("Added to ritual", {
       description: `${quantity}x ${product.title}`,
       position: "top-center",
     });
@@ -123,11 +123,11 @@ const ProductDetail = () => {
         <Header />
         <main className="pt-32 pb-20">
           <div className="container mx-auto px-4 text-center py-20">
-            <h1 className="font-heading text-3xl mb-4">Prodotto non trovato</h1>
+            <h1 className="font-heading text-3xl mb-4">Product not found</h1>
             <Button variant="quantum" asChild>
               <Link to="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Torna al Ritual Lab
+                Return to Ritual Lab
               </Link>
             </Button>
           </div>
@@ -151,7 +151,7 @@ const ProductDetail = () => {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Torna al Ritual Lab</span>
+            <span>Return to Ritual Lab</span>
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-12">
@@ -203,7 +203,7 @@ const ProductDetail = () => {
               </p>
 
               <p className="text-muted-foreground leading-relaxed mb-8">
-                {product.description || "Rituale quantico per la rigenerazione multidimensionale. Una formula che attiva il sistema endocannabinoide e risveglia il potenziale energetico della pelle."}
+                {product.description || "Quantum ritual for multidimensional regeneration. A formula that activates the endocannabinoid system and awakens the skin's energetic potential."}
               </p>
 
               {/* Variants */}
@@ -234,7 +234,7 @@ const ProductDetail = () => {
               {/* Quantity */}
               <div className="mb-8">
                 <label className="block text-sm font-medium text-foreground mb-3">
-                  Quantità
+                  Quantity
                 </label>
                 <div className="flex items-center gap-3">
                   <Button
@@ -264,7 +264,7 @@ const ProductDetail = () => {
                 disabled={!currentVariant?.availableForSale}
               >
                 <ShoppingCart className="w-5 h-5" />
-                {currentVariant?.availableForSale ? "Inizia il Tuo Rituale" : "Non Disponibile"}
+                {currentVariant?.availableForSale ? "Begin Your Ritual" : "Not Available"}
               </Button>
 
               {/* Trust badges */}
@@ -272,19 +272,19 @@ const ProductDetail = () => {
                 <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span>Filiera Italiana</span>
+                    <span>Italian Supply Chain</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-secondary" />
-                    <span>Test Clinici</span>
+                    <span>Clinical Trials</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-accent" />
-                    <span>Spedizione Rapida</span>
+                    <span>Fast Shipping</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span>Reso Facile</span>
+                    <span>Easy Returns</span>
                   </div>
                 </div>
               </div>

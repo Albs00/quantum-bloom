@@ -4,29 +4,29 @@ import { cn } from "@/lib/utils";
 const values = [
   {
     icon: Atom,
-    title: "Scienza Magica e Quantica",
-    description: "Innovazione biotecnologica, test rigorosi, risultati tangibili. Dove la fisica quantistica incontra la cosmetica avanzata.",
+    title: "Magical & Quantum Science",
+    description: "Biotechnological innovation, rigorous testing, tangible results. Where quantum physics meets advanced cosmeceutics.",
     color: "primary",
     delay: "animation-delay-200",
   },
   {
     icon: Heart,
-    title: "Olistico per Natura",
-    description: "La pelle, l'energia, lo spirito in equilibrio. Ogni formula agisce su tutti i livelli del tuo essere.",
+    title: "Holistic by Nature",
+    description: "Skin, energy, spirit in balance. Every formula acts on all levels of your being.",
     color: "secondary",
     delay: "animation-delay-400",
   },
   {
     icon: Shield,
-    title: "Trasparenza e Sicurezza",
-    description: "Test clinici pubblicati, chiarezza sugli attivi, zero compromessi. La tua fiducia è il nostro valore più prezioso.",
+    title: "Transparency & Safety",
+    description: "Published clinical trials, clarity on actives, zero compromises. Your trust is our most precious value.",
     color: "accent",
     delay: "animation-delay-600",
   },
   {
     icon: Sparkles,
-    title: "Rituale Energetico",
-    description: "Ogni prodotto è un rituale sensoriale completo: texture trasformative, signature olfattive, esperienza multidimensionale.",
+    title: "Energetic Ritual",
+    description: "Every product is a complete sensory ritual: transformative textures, signature fragrances, multidimensional experience.",
     color: "primary",
     delay: "animation-delay-800",
   },
@@ -46,14 +46,14 @@ export const ValuesSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border mb-6">
             <Heart className="w-4 h-4 text-secondary" />
-            <span className="text-sm text-muted-foreground tracking-wide">I Nostri Valori</span>
+            <span className="text-sm text-muted-foreground tracking-wide">Our Values</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-            I Pilastri della{" "}
-            <span className="text-gradient-sacred">Trasformazione</span>
+            The Pillars of{" "}
+            <span className="text-gradient-sacred">Transformation</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Quattro principi fondamentali che guidano ogni formula, ogni rituale, ogni esperienza Green Lab.
+            Four fundamental principles that guide every formula, every ritual, every Green Lab experience.
           </p>
         </div>
 

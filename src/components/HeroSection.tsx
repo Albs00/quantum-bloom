@@ -19,23 +19,23 @@ export const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border mb-8 animate-fade-in">
             <Sparkles className="w-4 h-4 text-secondary" />
-            <span className="text-sm text-muted-foreground tracking-wide">Cosmeceutica Quantica</span>
+            <span className="text-sm text-muted-foreground tracking-wide">Quantum Cosmeceutics</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight mb-6 animate-fade-in animation-delay-200">
-            La Pelle è solo il{" "}
-            <span className="text-gradient-sacred font-medium">Primo Livello</span>
+            Skin is Only the{" "}
+            <span className="text-gradient-sacred font-medium">First Layer</span>
           </h1>
 
           <p className="font-heading text-xl sm:text-2xl md:text-3xl text-muted-foreground font-light mb-8 animate-fade-in animation-delay-400">
-            Risveglia l'Energia, Rigenera la Tua Essenza
+            Awaken the Energy, Regenerate Your Essence
           </p>
 
           {/* Description */}
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-12 animate-fade-in animation-delay-600">
-            Dove la scienza botanica incontra la magia naturale. Formule che attivano il sistema endocannabinoide, 
-            risvegliano il campo energetico e orchestrano la rigenerazione cellulare.
+            Where botanical science meets natural magic. Formulations that activate the endocannabinoid system, 
+            awaken the energy field, and orchestrate cellular regeneration.
           </p>
 
           {/* CTAs */}
@@ -43,12 +43,12 @@ export const HeroSection = () => {
             <Button variant="sacred" size="xl" asChild>
               <a href="#ritual-lab">
                 <Sparkles className="w-5 h-5" />
-                Scopri il Ritual Lab
+                Discover the Ritual Lab
               </a>
             </Button>
             <Button variant="quantum" size="xl" asChild>
               <a href="#filosofia">
-                Inizia il Viaggio Quantico
+                Begin the Quantum Journey
                 <ArrowRight className="w-5 h-5" />
               </a>
             </Button>
@@ -58,15 +58,15 @@ export const HeroSection = () => {
           <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-muted-foreground animate-fade-in animation-delay-800">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary" />
-              <span className="text-sm">Filiera Italiana</span>
+              <span className="text-sm">Italian Supply Chain</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-secondary" />
-              <span className="text-sm">Test Clinici</span>
+              <span className="text-sm">Clinical Trials</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-accent" />
-              <span className="text-sm">Biotecnologia Avanzata</span>
+              <span className="text-sm">Advanced Biotechnology</span>
             </div>
           </div>
         </div>

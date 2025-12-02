@@ -3,27 +3,27 @@ import { Zap, Waves, FlaskConical, Microscope } from "lucide-react";
 const technologies = [
   {
     icon: Waves,
-    title: "Ultrasuoni Giantec",
-    description: "Frequenze soniche che penetrano la barriera cutanea, trasportando i principi attivi nelle profondità cellulari. Come un diapason per le tue cellule.",
-    metaphor: "L'onda che risveglia",
+    title: "Giantec Ultrasonics",
+    description: "Sonic frequencies that penetrate the skin barrier, transporting active ingredients into cellular depths. Like a tuning fork for your cells.",
+    metaphor: "The awakening wave",
   },
   {
     icon: FlaskConical,
     title: "Short Path Distillation",
-    description: "Purificazione alchemica dei fitocomplessi. Estraiamo solo l'essenza più pura, preservando l'energia vitale di ogni molecola.",
-    metaphor: "L'arte della distillazione",
+    description: "Alchemical purification of phytocomplexes. We extract only the purest essence, preserving the vital energy of every molecule.",
+    metaphor: "The art of distillation",
   },
   {
     icon: Microscope,
-    title: "Nanoemulsioni Bioattive",
-    description: "Particelle così piccole da danzare tra le membrane cellulari. Biodisponibilità massima, assorbimento istantaneo.",
-    metaphor: "Il veicolo quantico",
+    title: "Bioactive Nanoemulsions",
+    description: "Particles so small they dance between cellular membranes. Maximum bioavailability, instant absorption.",
+    metaphor: "The quantum vehicle",
   },
   {
     icon: Zap,
-    title: "Attivazione SEC",
-    description: "Modulazione del sistema endocannabinoide: equilibrio, omeostasi, comunicazione cellulare perfetta. Il linguaggio segreto del corpo.",
-    metaphor: "La frequenza dell'equilibrio",
+    title: "ECS Activation",
+    description: "Endocannabinoid system modulation: balance, homeostasis, perfect cellular communication. The body's secret language.",
+    metaphor: "The frequency of balance",
   },
 ];
 
@@ -42,15 +42,15 @@ export const TechnologySection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border mb-6">
             <Zap className="w-4 h-4 text-secondary" />
-            <span className="text-sm text-muted-foreground tracking-wide">Tecnologia & Scienza</span>
+            <span className="text-sm text-muted-foreground tracking-wide">Technology & Science</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-            L'Alchimia della{" "}
-            <span className="text-gradient-sacred">Biotecnologia</span>
+            The Alchemy of{" "}
+            <span className="text-gradient-sacred">Biotechnology</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Dove il sapere ancestrale incontra la fisica quantistica. Tecnologie che trasformano 
-            le molecole in sinfonie energetiche.
+            Where ancestral knowledge meets quantum physics. Technologies that transform 
+            molecules into energetic symphonies.
           </p>
         </div>
 
@@ -109,7 +109,7 @@ export const TechnologySection = () => {
               </div>
             </div>
             <span className="text-muted-foreground text-sm">
-              Dai fitocomplessi agli attivi bioenergetici
+              From phytocomplexes to bioenergetic actives
             </span>
           </div>
         </div>

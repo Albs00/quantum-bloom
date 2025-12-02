@@ -16,22 +16,22 @@ export const Footer = () => {
               </span>
             </a>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Cosmeceutica quantica. Dove la scienza botanica incontra la magia naturale.
+              Quantum cosmeceutics. Where botanical science meets natural magic.
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Esplora</h4>
+            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Explore</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#filosofia" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-                  Filosofia
+                  Philosophy
                 </a>
               </li>
               <li>
                 <a href="#valori" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-                  Valori
+                  Values
                 </a>
               </li>
               <li>
@@ -41,18 +41,18 @@ export const Footer = () => {
               </li>
               <li>
                 <a href="#tecnologia" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-                  Tecnologia
+                  Technology
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Supporto</h4>
+            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Support</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-                  Contattaci
+                  Contact Us
                 </a>
               </li>
               <li>
@@ -62,19 +62,19 @@ export const Footer = () => {
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-                  Spedizioni
+                  Shipping
                 </a>
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-                  Resi
+                  Returns
                 </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Legale</h4>
+            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Legal</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
@@ -83,7 +83,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-                  Termini di Servizio
+                  Terms of Service
                 </a>
               </li>
               <li>
@@ -99,11 +99,11 @@ export const Footer = () => {
         <div className="flex flex-wrap justify-center gap-6 py-8 border-t border-b border-border mb-8">
           <div className="flex items-center gap-2 text-muted-foreground">
             <Leaf className="w-5 h-5 text-primary" />
-            <span className="text-sm">Filiera 100% Italiana</span>
+            <span className="text-sm">100% Italian Supply Chain</span>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <Shield className="w-5 h-5 text-secondary" />
-            <span className="text-sm">Test Clinici Certificati</span>
+            <span className="text-sm">Certified Clinical Trials</span>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <Heart className="w-5 h-5 text-accent" />
@@ -114,10 +114,10 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Green Lab. Tutti i diritti riservati.
+            © {new Date().getFullYear()} Green Lab. All rights reserved.
           </p>
           <p className="text-muted-foreground text-xs italic font-heading">
-            "Diventa il direttore d'orchestra della tua rigenerazione"
+            "Become the conductor of your own regeneration"
           </p>
         </div>
       </div>

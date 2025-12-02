@@ -41,7 +41,7 @@ export const ProductGrid = () => {
       selectedOptions: variant.selectedOptions,
     });
 
-    toast.success("Aggiunto al rituale", {
+    toast.success("Added to ritual", {
       description: product.node.title,
       position: "top-center",
     });
@@ -57,7 +57,7 @@ export const ProductGrid = () => {
               <span className="text-sm text-muted-foreground tracking-wide">Ritual Lab</span>
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-              I Tuoi <span className="text-gradient-gold">Rituali</span>
+              Your <span className="text-gradient-gold">Rituals</span>
             </h2>
           </div>
           <div className="flex items-center justify-center py-20">
@@ -78,17 +78,17 @@ export const ProductGrid = () => {
               <span className="text-sm text-muted-foreground tracking-wide">Ritual Lab</span>
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-              I Tuoi <span className="text-gradient-gold">Rituali</span>
+              Your <span className="text-gradient-gold">Rituals</span>
             </h2>
           </div>
           <div className="max-w-md mx-auto text-center py-16">
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-muted flex items-center justify-center">
               <Package className="w-10 h-10 text-muted-foreground" />
             </div>
-            <h3 className="font-heading text-2xl mb-4 text-foreground">I Rituali Stanno Arrivando</h3>
+            <h3 className="font-heading text-2xl mb-4 text-foreground">The Rituals Are Coming</h3>
             <p className="text-muted-foreground mb-6">
-              Stiamo preparando formule straordinarie per il tuo viaggio quantico. 
-              Presto potrai esplorare i nostri rituali trasformativi.
+              We're preparing extraordinary formulations for your quantum journey. 
+              Soon you'll be able to explore our transformative rituals.
             </p>
           </div>
         </div>
@@ -109,11 +109,11 @@ export const ProductGrid = () => {
             <span className="text-sm text-muted-foreground tracking-wide">Ritual Lab</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-            I Tuoi <span className="text-gradient-gold">Rituali</span>
+            Your <span className="text-gradient-gold">Rituals</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Ogni formula è un viaggio multidimensionale: benefici energetici, chimici, botanici e sensoriali 
-            in perfetta sinfonia.
+            Every formula is a multidimensional journey: energetic, chemical, botanical, and sensory benefits 
+            in perfect symphony.
           </p>
         </div>
 
@@ -152,7 +152,7 @@ export const ProductGrid = () => {
                     {product.node.title}
                   </h3>
                   <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
-                    {product.node.description || "Rituale quantico per la rigenerazione multidimensionale."}
+                    {product.node.description || "Quantum ritual for multidimensional regeneration."}
                   </p>
                   
                   <div className="flex items-center justify-between">
@@ -166,7 +166,7 @@ export const ProductGrid = () => {
                       className="opacity-0 group-hover:opacity-100 transition-opacity"
                     >
                       <ShoppingCart className="w-4 h-4 mr-2 group-hover:text-primary transition-colors" />
-                      Aggiungi
+                      Add
                     </Button>
                   </div>
                 </div>

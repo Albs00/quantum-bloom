@@ -13,11 +13,11 @@ export const PhilosophySection = () => {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border mb-6">
               <Atom className="w-4 h-4 text-accent" />
-              <span className="text-sm text-muted-foreground tracking-wide">Filosofia & Manifesto</span>
+              <span className="text-sm text-muted-foreground tracking-wide">Philosophy & Manifesto</span>
             </div>
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-              La Bellezza oltre la{" "}
-              <span className="text-gradient-gold">Pelle</span>
+              Beauty Beyond the{" "}
+              <span className="text-gradient-gold">Skin</span>
             </h2>
           </div>
 
@@ -67,19 +67,19 @@ export const PhilosophySection = () => {
             {/* Text side */}
             <div className="space-y-6">
               <blockquote className="font-heading text-2xl md:text-3xl font-light leading-relaxed text-foreground italic border-l-2 border-secondary pl-6">
-                "Armonia tra corpo, mente e campo energetico"
+                "Harmony between body, mind, and energy field"
               </blockquote>
               
               <p className="text-muted-foreground leading-relaxed">
-                Scienza botanica, magia naturale e ricerca avanzata sul sistema endocannabinoide: 
-                questo è il motore dei nostri cosmetici. Ogni formula è un viaggio multidimensionale 
-                attraverso piante di antica tradizione e biotecnologie d'avanguardia.
+                Botanical science, natural magic, and advanced research on the endocannabinoid system: 
+                this is the engine of our cosmetics. Each formula is a multidimensional journey 
+                through plants of ancient tradition and cutting-edge biotechnology.
               </p>
 
               <p className="text-muted-foreground leading-relaxed">
-                Non cerchiamo solo di migliorare la pelle: orchestriamo una sinfonia di frequenze 
-                biologiche, risvegliamo recettori sopiti, attiviamo il potenziale rigenerativo 
-                inscritto nel tuo DNA. Diventa il direttore d'orchestra della tua rigenerazione.
+                We don't just seek to improve the skin: we orchestrate a symphony of biological 
+                frequencies, awaken dormant receptors, activate the regenerative potential 
+                inscribed in your DNA. Become the conductor of your own regeneration.
               </p>
 
               <div className="pt-4 flex items-center gap-4">

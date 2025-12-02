@@ -55,10 +55,10 @@ export const CartDrawer = () => {
         <SheetHeader className="flex-shrink-0">
           <SheetTitle className="font-heading text-2xl flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-secondary" />
-            Il Tuo Rituale
+            Your Ritual
           </SheetTitle>
           <SheetDescription className="text-muted-foreground">
-            {totalItems === 0 ? "Il carrello è vuoto" : `${totalItems} prodott${totalItems !== 1 ? 'i' : 'o'} nel tuo viaggio quantico`}
+            {totalItems === 0 ? "Cart is empty" : `${totalItems} ${totalItems !== 1 ? 'products' : 'product'} in your quantum journey`}
           </SheetDescription>
         </SheetHeader>
         
@@ -69,8 +69,8 @@ export const CartDrawer = () => {
                 <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
                   <ShoppingCart className="h-8 w-8 text-muted-foreground" />
                 </div>
-                <p className="text-muted-foreground font-heading text-lg">Inizia il tuo viaggio trasformativo</p>
-                <p className="text-sm text-muted-foreground mt-2">Scopri i rituali nel Ritual Lab</p>
+                <p className="text-muted-foreground font-heading text-lg">Begin your transformative journey</p>
+                <p className="text-sm text-muted-foreground mt-2">Discover rituals in the Ritual Lab</p>
               </div>
             </div>
           ) : (
@@ -134,7 +134,7 @@ export const CartDrawer = () => {
               
               <div className="flex-shrink-0 space-y-4 pt-6 border-t border-border mt-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-heading">Totale Energia</span>
+                  <span className="text-lg font-heading">Total Energy</span>
                   <span className="text-2xl font-heading font-bold text-gradient-gold">
                     {currency} {totalPrice.toFixed(2)}
                   </span>
@@ -150,12 +150,12 @@ export const CartDrawer = () => {
                   {isLoading ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      Preparazione Rituale...
+                      Preparing Ritual...
                     </>
                   ) : (
                     <>
                       <ExternalLink className="w-5 h-5" />
-                      Completa il Rituale
+                      Complete the Ritual
                     </>
                   )}
                 </Button>

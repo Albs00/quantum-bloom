@@ -6,18 +6,18 @@ import { toast } from "sonner";
 
 const articles = [
   {
-    title: "Il Sistema Endocannabinoide: La Chiave dell'Equilibrio",
-    category: "Scienza",
+    title: "The Endocannabinoid System: The Key to Balance",
+    category: "Science",
     readTime: "8 min",
   },
   {
-    title: "Rituali di Skincare: Oltre la Superficie",
-    category: "Rituale",
+    title: "Skincare Rituals: Beyond the Surface",
+    category: "Ritual",
     readTime: "5 min",
   },
   {
-    title: "Geometria Sacra e Frequenze Cellulari",
-    category: "Energia",
+    title: "Sacred Geometry and Cellular Frequencies",
+    category: "Energy",
     readTime: "6 min",
   },
 ];
@@ -35,8 +35,8 @@ export const CommunitySection = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setLoading(false);
     setEmail("");
-    toast.success("Benvenuto nel viaggio", {
-      description: "Riceverai i segreti della bellezza multidimensionale.",
+    toast.success("Welcome to the journey", {
+      description: "You will receive the secrets of multidimensional beauty.",
       position: "top-center",
     });
   };
@@ -57,13 +57,13 @@ export const CommunitySection = () => {
             </div>
             
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-6">
-              La Magia{" "}
-              <span className="text-gradient-sacred">Scientifica</span>
+              The Scientific{" "}
+              <span className="text-gradient-sacred">Magic</span>
             </h2>
             
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              Esplora il confine tra scienza e mistero. Webinar, articoli e guide che svelano 
-              i segreti dei cannabinoidi, dell'energia cellulare e dello skincare rituale.
+              Explore the boundary between science and mystery. Webinars, articles, and guides that reveal 
+              the secrets of cannabinoids, cellular energy, and ritual skincare.
             </p>
 
             {/* Article previews */}
@@ -104,19 +104,19 @@ export const CommunitySection = () => {
                 </div>
 
                 <h3 className="font-heading text-2xl md:text-3xl font-semibold mb-4 text-foreground">
-                  I Segreti della Bellezza Multidimensionale
+                  The Secrets of Multidimensional Beauty
                 </h3>
 
                 <p className="text-muted-foreground mb-8">
-                  Iscriviti per ricevere conoscenze esclusive su energia, cannabinoidi, 
-                  rituali cosmetici e le ultime scoperte dalla nostra ricerca.
+                  Subscribe to receive exclusive knowledge on energy, cannabinoids, 
+                  cosmetic rituals, and the latest discoveries from our research.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Input
                       type="email"
-                      placeholder="La tua email"
+                      placeholder="Your email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="flex-1 bg-muted/50 border-border focus:border-primary"
@@ -132,14 +132,14 @@ export const CommunitySection = () => {
                         <Sparkles className="w-5 h-5 animate-spin" />
                       ) : (
                         <>
-                          Inizia
+                          Begin
                           <ArrowRight className="w-5 h-5" />
                         </>
                       )}
                     </Button>
                   </div>
                   <p className="text-xs text-muted-foreground">
-                    Rispettiamo la tua privacy. Nessuno spam, solo conoscenza sacra.
+                    We respect your privacy. No spam, only sacred knowledge.
                   </p>
                 </form>
               </div>
