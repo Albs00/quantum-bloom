@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { BookOpen, Sparkles, Mail, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { ArticleCard } from "./ArticleCard";
 
 const articles = [
   {
@@ -25,6 +27,8 @@ const articles = [
 export const CommunitySection = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const { elementRef: leftRef, isVisible: leftVisible } = useScrollAnimation({ delay: 0 });
+  const { elementRef: rightRef, isVisible: rightVisible } = useScrollAnimation({ delay: 200 });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,20 +49,23 @@ export const CommunitySection = () => {
     <section id="community" className="py-24 md:py-32 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 gradient-quantum" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] animate-sacred-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Academy content */}
-          <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border mb-6">
+          <div 
+            ref={leftRef}
+            className={`scroll-animate scroll-animate-slide-left ${leftVisible ? 'animate-in' : ''}`}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border mb-6 animate-scale-in">
               <BookOpen className="w-4 h-4 text-accent" />
               <span className="text-sm text-muted-foreground tracking-wide">Academy</span>
             </div>
             
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-6">
               The Scientific{" "}
-              <span className="text-gradient-sacred">Magic</span>
+              <span className="text-gradient-sacred animate-shimmer-text">Magic</span>
             </h2>
             
             <p className="text-muted-foreground mb-8 leading-relaxed">
@@ -68,32 +75,24 @@ export const CommunitySection = () => {
 
             {/* Article previews */}
             <div className="space-y-4">
-              {articles.map((article) => (
-                <div
+              {articles.map((article, index) => (
+                <ArticleCard
                   key={article.title}
-                  className="group p-4 rounded-xl bg-card/50 border border-border hover:border-primary/50 transition-all cursor-pointer"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <span className="text-xs text-secondary uppercase tracking-wider">
-                        {article.category}
-                      </span>
-                      <h4 className="font-heading text-lg font-medium mt-1 text-foreground group-hover:text-gradient-gold transition-all">
-                        {article.title}
-                      </h4>
-                    </div>
-                    <span className="text-xs text-muted-foreground whitespace-nowrap">
-                      {article.readTime}
-                    </span>
-                  </div>
-                </div>
+                  title={article.title}
+                  category={article.category}
+                  readTime={article.readTime}
+                  delay={index * 150}
+                />
               ))}
             </div>
           </div>
 
           {/* Newsletter */}
-          <div className="relative">
-            <div className="p-8 md:p-12 rounded-3xl bg-card border border-border relative overflow-hidden">
+          <div 
+            ref={rightRef}
+            className={`relative scroll-animate scroll-animate-slide-right ${rightVisible ? 'animate-in' : ''}`}
+          >
+            <div className="p-8 md:p-12 rounded-3xl bg-card border border-border relative overflow-hidden hover-lift">
               {/* Decorative */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-full" />
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-secondary/20 to-transparent rounded-tr-full" />

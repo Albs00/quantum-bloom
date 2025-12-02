@@ -9,23 +9,23 @@ export const HeroSection = () => {
       <div className="absolute inset-0 gradient-quantum" />
       <SacredGeometry />
       
-      {/* Radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]" />
-      <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-secondary/10 rounded-full blur-[80px]" />
-      <div className="absolute bottom-1/3 left-1/4 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[60px]" />
+      {/* Radial glow with animation */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-sacred-pulse" />
+      <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-secondary/10 rounded-full blur-[80px] animate-float animation-delay-200" />
+      <div className="absolute bottom-1/3 left-1/4 w-[200px] h-[200px] bg-accent/10 rounded-full blur-[60px] animate-float animation-delay-400" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border mb-8 animate-fade-in">
-            <Sparkles className="w-4 h-4 text-secondary" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border mb-8 animate-fade-in hover-lift">
+            <Sparkles className="w-4 h-4 text-secondary animate-float" />
             <span className="text-sm text-muted-foreground tracking-wide">Quantum Cosmeceutics</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight mb-6 animate-fade-in animation-delay-200">
             Skin is Only the{" "}
-            <span className="text-gradient-sacred font-medium">First Layer</span>
+            <span className="text-gradient-sacred font-medium animate-shimmer-text inline-block">First Layer</span>
           </h1>
 
           <p className="font-heading text-xl sm:text-2xl md:text-3xl text-muted-foreground font-light mb-8 animate-fade-in animation-delay-400">
@@ -33,7 +33,7 @@ export const HeroSection = () => {
           </p>
 
           {/* Description */}
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-12 animate-fade-in animation-delay-600">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-12 animate-fade-in animation-delay-600 leading-relaxed">
             Where botanical science meets natural magic. Formulations that activate the endocannabinoid system, 
             awaken the energy field, and orchestrate cellular regeneration.
           </p>

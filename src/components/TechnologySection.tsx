@@ -1,6 +1,13 @@
 import { Zap, FlaskConical, Leaf, Shield } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const TechnologySection = () => {
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation({ delay: 0 });
+  const { elementRef: p1Ref, isVisible: p1Visible } = useScrollAnimation({ delay: 100 });
+  const { elementRef: p2Ref, isVisible: p2Visible } = useScrollAnimation({ delay: 200 });
+  const { elementRef: p3Ref, isVisible: p3Visible } = useScrollAnimation({ delay: 300 });
+  const { elementRef: p4Ref, isVisible: p4Visible } = useScrollAnimation({ delay: 400 });
+
   return (
     <section id="tecnologia" className="py-24 md:py-32 relative overflow-hidden bg-muted/30">
       {/* Animated background */}
@@ -12,32 +19,38 @@ export const TechnologySection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border mb-6">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 scroll-animate scroll-animate-slide-up ${headerVisible ? 'animate-in' : ''}`}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border mb-6 animate-scale-in">
             <Zap className="w-4 h-4 text-secondary" />
             <span className="text-sm text-muted-foreground tracking-wide">Technology & Science</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
             The Science Behind{" "}
-            <span className="text-gradient-sacred">Quality</span>
+            <span className="text-gradient-sacred animate-shimmer-text">Quality</span>
           </h2>
         </div>
 
         {/* Main content - 4 paragraphs structure */}
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Paragraph 1: Who is Giantec */}
-          <div className="relative p-8 rounded-2xl bg-card border border-border">
-            <div className="flex gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <FlaskConical className="w-8 h-8 text-primary" />
+          <div 
+            ref={p1Ref}
+            className={`relative p-8 rounded-2xl bg-card border border-border hover-lift hover-glow scroll-animate scroll-animate-slide-left ${p1Visible ? 'animate-in' : ''}`}
+          >
+              <div className="flex gap-6">
+              <div className="flex-shrink-0 group/icon">
+                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center animate-float transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-105">
+                  <FlaskConical className="w-8 h-8 text-primary transition-all duration-300" />
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="font-heading text-xl font-semibold mb-4 text-foreground">
+                <h3 className="font-heading text-xl font-semibold mb-4 text-foreground transition-all duration-300 group-hover:text-gradient-gold">
                   Our Technology Partner
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed transition-all duration-300">
                   Giantec is an Italian laboratory with a multidisciplinary team dedicated to research and the production of high-quality cosmetic extracts. Their expertise bridges advanced biotechnology and precision extraction methods.
                 </p>
               </div>
@@ -45,10 +58,13 @@ export const TechnologySection = () => {
           </div>
 
           {/* Paragraph 2: Extraction methods */}
-          <div className="relative p-8 rounded-2xl bg-card border border-border">
+          <div 
+            ref={p2Ref}
+            className={`relative p-8 rounded-2xl bg-card border border-border hover-lift hover-glow scroll-animate scroll-animate-slide-right ${p2Visible ? 'animate-in' : ''}`}
+          >
             <div className="flex gap-6">
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-xl bg-secondary/10 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-xl bg-secondary/10 flex items-center justify-center animate-float animation-delay-200">
                   <Zap className="w-8 h-8 text-secondary" />
                 </div>
               </div>
@@ -67,10 +83,13 @@ export const TechnologySection = () => {
           </div>
 
           {/* Paragraph 3: Benefits for the user */}
-          <div className="relative p-8 rounded-2xl bg-card border border-border">
+          <div 
+            ref={p3Ref}
+            className={`relative p-8 rounded-2xl bg-card border border-border hover-lift hover-glow scroll-animate scroll-animate-slide-left ${p3Visible ? 'animate-in' : ''}`}
+          >
             <div className="flex gap-6">
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-xl bg-accent/10 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-xl bg-accent/10 flex items-center justify-center animate-float animation-delay-400">
                   <Leaf className="w-8 h-8 text-accent" />
                 </div>
               </div>
@@ -86,10 +105,13 @@ export const TechnologySection = () => {
           </div>
 
           {/* Paragraph 4: Supply chain and quality */}
-          <div className="relative p-8 rounded-2xl bg-card border border-border">
+          <div 
+            ref={p4Ref}
+            className={`relative p-8 rounded-2xl bg-card border border-border hover-lift hover-glow scroll-animate scroll-animate-slide-right ${p4Visible ? 'animate-in' : ''}`}
+          >
             <div className="flex gap-6">
               <div className="flex-shrink-0">
-                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center animate-float animation-delay-600">
                   <Shield className="w-8 h-8 text-primary" />
                 </div>
               </div>
