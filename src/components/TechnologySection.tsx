@@ -1,31 +1,4 @@
-import { Zap, Waves, FlaskConical, Microscope } from "lucide-react";
-
-const technologies = [
-  {
-    icon: Waves,
-    title: "Giantec Ultrasonics",
-    description: "Sonic frequencies that penetrate the skin barrier, transporting active ingredients into cellular depths. Like a tuning fork for your cells.",
-    metaphor: "The awakening wave",
-  },
-  {
-    icon: FlaskConical,
-    title: "Short Path Distillation",
-    description: "Alchemical purification of phytocomplexes. We extract only the purest essence, preserving the vital energy of every molecule.",
-    metaphor: "The art of distillation",
-  },
-  {
-    icon: Microscope,
-    title: "Bioactive Nanoemulsions",
-    description: "Particles so small they dance between cellular membranes. Maximum bioavailability, instant absorption.",
-    metaphor: "The quantum vehicle",
-  },
-  {
-    icon: Zap,
-    title: "ECS Activation",
-    description: "Endocannabinoid system modulation: balance, homeostasis, perfect cellular communication. The body's secret language.",
-    metaphor: "The frequency of balance",
-  },
-];
+import { Zap, FlaskConical, Leaf, Shield } from "lucide-react";
 
 export const TechnologySection = () => {
   return (
@@ -45,53 +18,91 @@ export const TechnologySection = () => {
             <span className="text-sm text-muted-foreground tracking-wide">Technology & Science</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-            The Alchemy of{" "}
-            <span className="text-gradient-sacred">Biotechnology</span>
+            The Science Behind{" "}
+            <span className="text-gradient-sacred">Quality</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Where ancestral knowledge meets quantum physics. Technologies that transform 
-            molecules into energetic symphonies.
-          </p>
         </div>
 
-        {/* Technologies grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {technologies.map((tech, index) => (
-            <div
-              key={tech.title}
-              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500"
-            >
-              {/* Background gradient on hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative flex gap-6">
-                {/* Icon */}
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-xl bg-muted flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
-                    <tech.icon className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-1">
-                  <span className="text-xs text-secondary uppercase tracking-widest font-medium">
-                    {tech.metaphor}
-                  </span>
-                  <h3 className="font-heading text-xl font-semibold mt-2 mb-3 text-foreground">
-                    {tech.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {tech.description}
-                  </p>
+        {/* Main content - 4 paragraphs structure */}
+        <div className="max-w-4xl mx-auto space-y-12">
+          {/* Paragraph 1: Who is Giantec */}
+          <div className="relative p-8 rounded-2xl bg-card border border-border">
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <FlaskConical className="w-8 h-8 text-primary" />
                 </div>
               </div>
-
-              {/* Connection lines */}
-              {index < technologies.length - 1 && (
-                <div className="absolute -bottom-4 left-1/2 w-px h-8 bg-gradient-to-b from-border to-transparent hidden md:block" />
-              )}
+              <div className="flex-1">
+                <h3 className="font-heading text-xl font-semibold mb-4 text-foreground">
+                  Our Technology Partner
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Giantec is an Italian laboratory with a multidisciplinary team dedicated to research and the production of high-quality cosmetic extracts. Their expertise bridges advanced biotechnology and precision extraction methods.
+                </p>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Paragraph 2: Extraction methods */}
+          <div className="relative p-8 rounded-2xl bg-card border border-border">
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 rounded-xl bg-secondary/10 flex items-center justify-center">
+                  <Zap className="w-8 h-8 text-secondary" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-heading text-xl font-semibold mb-4 text-foreground">
+                  Advanced Extraction Methods
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  Our formulations use ultrasonic extraction (sonification) with pharmaceutical-grade ethanol, followed by short path distillation. These methods preserve phytocomplexes better than traditional techniques.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Lower thermal stress maintains molecular integrity. Higher yield ensures you receive extracts rich in active compounds. The pharmaceutical-grade ethanol is completely removed from the finished product, leaving only pure botanical actives.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Paragraph 3: Benefits for the user */}
+          <div className="relative p-8 rounded-2xl bg-card border border-border">
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Leaf className="w-8 h-8 text-accent" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-heading text-xl font-semibold mb-4 text-foreground">
+                  What This Means for You
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Full spectrum extracts rich in cannabinoids and terpenes. Stable, effective formulations backed by rigorous quality controls. Each product delivers the complete botanical profile nature intended, optimized for your skincare ritual.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Paragraph 4: Supply chain and quality */}
+          <div className="relative p-8 rounded-2xl bg-card border border-border">
+            <div className="flex gap-6">
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-8 h-8 text-primary" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-heading text-xl font-semibold mb-4 text-foreground">
+                  Italian Supply Chain & Quality Assurance
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Certified biomasses cultivated without herbicides and pesticides in Italy. Made in Italy supply chain from field to formulation. All extracts undergo external laboratory testing to ensure purity, potency, and safety standards.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom infographic hint */}
@@ -102,14 +113,14 @@ export const TechnologySection = () => {
                 <span className="text-xs text-primary">CBD</span>
               </div>
               <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center">
-                <span className="text-xs text-secondary">SEC</span>
+                <span className="text-xs text-secondary">ECS</span>
               </div>
               <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                <span className="text-xs text-accent">ATP</span>
+                <span className="text-xs text-accent">TER</span>
               </div>
             </div>
             <span className="text-muted-foreground text-sm">
-              From phytocomplexes to bioenergetic actives
+              Full spectrum phytocomplexes
             </span>
           </div>
         </div>
