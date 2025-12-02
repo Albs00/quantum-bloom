@@ -12,10 +12,9 @@ export const Header = () => {
   );
 
   const navLinks = [
+    { href: "#featured-rituals", label: "Shop" },
+    { href: "#tecnologia", label: "Science" },
     { href: "#filosofia", label: "Philosophy" },
-    { href: "#valori", label: "Values" },
-    { href: "#ritual-lab", label: "Ritual Lab" },
-    { href: "#tecnologia", label: "Technology" },
     { href: "#community", label: "Academy" },
   ];
 

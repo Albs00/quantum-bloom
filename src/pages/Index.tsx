@@ -1,7 +1,8 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
+import { DifferentiatorsSection } from "@/components/DifferentiatorsSection";
+import { FeaturedRitualsSection } from "@/components/FeaturedRitualsSection";
 import { PhilosophySection } from "@/components/PhilosophySection";
-import { ValuesSection } from "@/components/ValuesSection";
 import { ProductGrid } from "@/components/ProductGrid";
 import { TechnologySection } from "@/components/TechnologySection";
 import { CommunitySection } from "@/components/CommunitySection";
@@ -13,10 +14,11 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <PhilosophySection />
-        <ValuesSection />
+        <DifferentiatorsSection />
+        <FeaturedRitualsSection />
         <ProductGrid />
         <TechnologySection />
+        <PhilosophySection />
         <CommunitySection />
       </main>
       <Footer />

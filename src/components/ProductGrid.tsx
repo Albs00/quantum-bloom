@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { ShopifyProduct, fetchProducts } from "@/lib/shopify";
-import { useCartStore } from "@/stores/cartStore";
-import { Sparkles, ShoppingCart, Loader2, Package } from "lucide-react";
-import { toast } from "sonner";
-import { Link } from "react-router-dom";
+import { Sparkles, Loader2, Package } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { ProductCard } from "./ProductCard";
 
 export const ProductGrid = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
-  const addItem = useCartStore((state) => state.addItem);
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation({ delay: 0 });
 
   useEffect(() => {
@@ -26,28 +22,6 @@ export const ProductGrid = () => {
     };
     loadProducts();
   }, []);
-
-  const handleAddToCart = (product: ShopifyProduct, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const variant = product.node.variants.edges[0]?.node;
-    if (!variant) return;
-
-    addItem({
-      product,
-      variantId: variant.id,
-      variantTitle: variant.title,
-      price: variant.price,
-      quantity: 1,
-      selectedOptions: variant.selectedOptions,
-    });
-
-    toast.success("Added to ritual", {
-      description: product.node.title,
-      position: "top-center",
-    });
-  };
 
   if (loading) {
     return (
@@ -111,83 +85,22 @@ export const ProductGrid = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted/50 border border-border mb-6 animate-scale-in">
             <Sparkles className="w-4 h-4 text-secondary" />
-            <span className="text-sm text-muted-foreground tracking-wide">Ritual Lab</span>
+            <span className="text-sm text-muted-foreground tracking-wide">All Rituals</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-light mb-4">
-            Your <span className="text-gradient-gold animate-shimmer-text">Rituals</span>
+            Complete Your{" "}
+            <span className="text-gradient-gold animate-shimmer-text">Ritual Collection</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Every formula is a multidimensional journey: energetic, chemical, botanical, and sensory benefits 
-            in perfect symphony.
+            Explore our full range of CBD skincare rituals, each crafted for specific skin needs and mindful wellness moments.
           </p>
         </div>
 
         {/* Products grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => {
-            const { elementRef, isVisible } = useScrollAnimation({ delay: index * 100 });
-            const image = product.node.images.edges[0]?.node;
-            const price = product.node.priceRange.minVariantPrice;
-
-            return (
-              <Link
-                key={product.node.id}
-                ref={elementRef}
-                to={`/product/${product.node.handle}`}
-                className={`group relative bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-500 hover-lift scroll-animate scroll-animate-scale ${isVisible ? 'animate-in' : ''}`}
-              >
-                {/* Image */}
-                <div className="aspect-square bg-muted relative overflow-hidden">
-                  {image ? (
-                    <img
-                      src={image.url}
-                      alt={image.altText || product.node.title}
-                      className="w-full h-full object-cover transition-all duration-500 ease-out group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Sparkles className="w-16 h-16 text-muted-foreground/30 animate-float" />
-                    </div>
-                  )}
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out" />
-                  {/* Shine effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-heading text-xl font-semibold mb-2 text-foreground group-hover:text-gradient-gold transition-all">
-                    {product.node.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
-                    {product.node.description || "Quantum ritual for multidimensional regeneration."}
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="font-heading text-2xl font-semibold text-secondary">
-                      {price.currencyCode} {parseFloat(price.amount).toFixed(2)}
-                    </span>
-                    <Button
-                      variant="ritual"
-                      size="sm"
-                      onClick={(e) => handleAddToCart(product, e)}
-                      className="opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out transform translate-y-2 group-hover:translate-y-0"
-                    >
-                      <ShoppingCart className="w-4 h-4 mr-2 group-hover:text-primary transition-all duration-300" />
-                      Add
-                    </Button>
-                  </div>
-                </div>
-
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hover-glow" style={{ boxShadow: 'inset 0 0 30px hsl(158, 64%, 35%, 0.1)' }} />
-              </Link>
-            );
-          })}
+          {products.map((product, index) => (
+            <ProductCard key={product.node.id} product={product} index={index} />
+          ))}
         </div>
       </div>
     </section>

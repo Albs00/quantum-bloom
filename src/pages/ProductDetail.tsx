@@ -7,6 +7,7 @@ import { ShopifyProduct, storefrontApiRequest } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { ArrowLeft, ShoppingCart, Sparkles, Loader2, Minus, Plus } from "lucide-react";
 import { toast } from "sonner";
+import { ProductSections } from "@/components/ProductSections";
 
 const PRODUCT_QUERY = `
   query GetProduct($handle: String!) {
@@ -193,18 +194,26 @@ const ProductDetail = () => {
 
             {/* Details */}
             <div>
-              <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-4 text-foreground">
+              <h1 className="font-heading text-3xl md:text-4xl font-semibold mb-3 text-foreground">
                 {product.title}
               </h1>
 
-              <p className="text-3xl font-heading font-bold text-gradient-gold mb-6">
-                {currentVariant?.price.currencyCode}{" "}
-                {parseFloat(currentVariant?.price.amount || "0").toFixed(2)}
+              {/* Benefit statement */}
+              <p className="text-lg text-muted-foreground mb-4 font-medium">
+                {product.description?.split(/[.!?]/)[0] || "Premium CBD skincare ritual for hydration, soothing, and antioxidant protection"}
               </p>
 
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                {product.description || "Quantum ritual for multidimensional regeneration. A formula that activates the endocannabinoid system and awakens the skin's energetic potential."}
-              </p>
+              <div className="flex items-baseline gap-4 mb-6">
+                <p className="text-3xl font-heading font-bold text-gradient-gold">
+                  {currentVariant?.price.currencyCode}{" "}
+                  {parseFloat(currentVariant?.price.amount || "0").toFixed(2)}
+                </p>
+                {product.options.find(opt => opt.name.toLowerCase().includes('volume') || opt.name.toLowerCase().includes('size')) && (
+                  <span className="text-muted-foreground text-sm">
+                    {product.options.find(opt => opt.name.toLowerCase().includes('volume') || opt.name.toLowerCase().includes('size'))?.values[0]}
+                  </span>
+                )}
+              </div>
 
               {/* Variants */}
               {product.options.length > 0 && product.options[0].values.length > 1 && (
@@ -259,37 +268,40 @@ const ProductDetail = () => {
               <Button
                 variant="sacred"
                 size="xl"
-                className="w-full"
+                className="w-full mb-8"
                 onClick={handleAddToCart}
                 disabled={!currentVariant?.availableForSale}
               >
                 <ShoppingCart className="w-5 h-5" />
-                {currentVariant?.availableForSale ? "Begin Your Ritual" : "Not Available"}
+                {currentVariant?.availableForSale ? "Add to Cart" : "Not Available"}
               </Button>
 
               {/* Trust badges */}
-              <div className="mt-8 pt-8 border-t border-border">
+              <div className="pt-8 border-t border-border">
                 <div className="grid grid-cols-2 gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span>Italian Supply Chain</span>
+                    <span>Made in Italy</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-secondary" />
-                    <span>Clinical Trials</span>
+                    <span>EU-Compliant</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-accent" />
-                    <span>Fast Shipping</span>
+                    <span>Lab-Tested</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    <span>Easy Returns</span>
+                    <span>Fast Shipping</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Product Sections */}
+          <ProductSections product={product} />
         </div>
       </main>
       <Footer />
