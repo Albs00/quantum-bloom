@@ -7,6 +7,7 @@ import { ShopifyProduct, storefrontApiRequest } from "@/lib/shopify";
 import { useCartStore } from "@/stores/cartStore";
 import { ArrowLeft, ShoppingCart, Loader2, Minus, Plus, Check } from "lucide-react";
 import { toast } from "sonner";
+import { PRODUCT_SPECS, getSpecsForProduct } from "@/lib/productSpecs";
 
 const PRODUCT_QUERY = `
   query GetProduct($handle: String!) {
@@ -139,6 +140,7 @@ const ProductDetail = () => {
 
   const currentVariant = product.variants.edges.find((v) => v.node.id === selectedVariant)?.node;
   const images = product.images.edges;
+  const specs = getSpecsForProduct(product.handle, product.title);
 
   const highlights = [
     "Made in Italy",
@@ -200,11 +202,11 @@ const ProductDetail = () => {
               )}
             </div>
 
-            {/* Details */}
-            <div className="lg:py-4">
-              <h1 className="font-heading text-3xl md:text-4xl font-medium mb-4 text-foreground">
-                {product.title}
-              </h1>
+          {/* Details */}
+          <div className="lg:py-4">
+            <h1 className="font-heading text-3xl md:text-4xl font-medium mb-4 text-foreground">
+              {product.title}
+            </h1>
 
               <p className="text-2xl font-heading text-foreground mb-6">
                 {currentVariant?.price.currencyCode}{" "}
@@ -216,6 +218,79 @@ const ProductDetail = () => {
                 <p className="text-muted-foreground leading-relaxed mb-8">
                   {product.description}
                 </p>
+              )}
+
+              {!specs?.cpnpReference && !(specs?.inci && specs.inci.length > 0) && (
+                <div className="p-4 rounded-xl bg-muted/20 border border-border mb-8">
+                  <div className="text-sm text-muted-foreground">
+                    Technical specifications will be published soon. Full INCI, CPNP reference and allergens will be listed upon verification.
+                  </div>
+                </div>
+              )}
+
+              {specs && (
+                <div className="grid gap-10 mb-10">
+                  <div className="grid sm:grid-cols-3 gap-6">
+                    {specs.content && (
+                      <div className="p-4 rounded-xl bg-muted/30">
+                        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Content</div>
+                        <div className="text-foreground font-medium">{specs.content}</div>
+                      </div>
+                    )}
+                    {specs.cpnpReference && (
+                      <div className="p-4 rounded-xl bg-muted/30">
+                        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">CPNP Reference</div>
+                        <div className="text-foreground font-medium">{specs.cpnpReference}</div>
+                      </div>
+                    )}
+                    {specs.allergens && specs.allergens.length > 0 && (
+                      <div className="p-4 rounded-xl bg-muted/30">
+                        <div className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Allergens</div>
+                        <div className="text-foreground font-medium">{specs.allergens.join(", ")}</div>
+                      </div>
+                    )}
+                  </div>
+
+                  {specs.inci && specs.inci.length > 0 && (
+                    <div>
+                      <h2 className="text-xl font-heading mb-3">Ingredients (INCI)</h2>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {specs.inci.join(", ")}
+                      </p>
+                    </div>
+                  )}
+
+                  {(specs.usage || specs.benefits) && (
+                    <div className="grid sm:grid-cols-2 gap-8">
+                      {specs.usage && (
+                        <div>
+                          <h3 className="text-lg font-heading mb-3">How to Use</h3>
+                          <ul className="space-y-2 text-muted-foreground">
+                            {specs.usage.map((step, i) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                                <span>{step}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {specs.benefits && (
+                        <div>
+                          <h3 className="text-lg font-heading mb-3">Benefits</h3>
+                          <ul className="space-y-2 text-muted-foreground">
+                            {specs.benefits.map((b, i) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <Check className="w-4 h-4 text-secondary shrink-0 mt-0.5" />
+                                <span>{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               )}
 
               {/* Variants */}

@@ -6,48 +6,38 @@ interface ValueCardProps {
   icon: LucideIcon;
   title: string;
   description: string;
-  color: "primary" | "secondary" | "accent";
   delay: number;
 }
 
-export const ValueCard = ({ icon: Icon, title, description, color, delay }: ValueCardProps) => {
+export const ValueCard = ({ icon: Icon, title, description, delay }: ValueCardProps) => {
   const { elementRef, isVisible } = useScrollAnimation({ delay });
 
   return (
-    <div
+    <div 
       ref={elementRef}
       className={cn(
-        "group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover-lift scroll-animate scroll-animate-scale",
-        isVisible && 'animate-in'
+        "group relative p-8 rounded-3xl bg-white/60 backdrop-blur-sm border border-primary/5 transition-all duration-700",
+        "hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-1",
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
       )}
     >
-      {/* Glow effect on hover */}
-      <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      
       {/* Icon */}
       <div
         className={cn(
-          "w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-105",
-          color === "primary" && "bg-primary/20 text-primary group-hover:bg-primary/30",
-          color === "secondary" && "bg-secondary/20 text-secondary group-hover:bg-secondary/30",
-          color === "accent" && "bg-accent/20 text-accent group-hover:bg-accent/30"
+          "w-14 h-14 rounded-2xl flex items-center justify-center mb-6",
+          "bg-secondary text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500 group-hover:rotate-6"
         )}
-        style={{ transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
       >
-        <Icon className="w-7 h-7 transition-all duration-300" />
+        <Icon className="w-7 h-7" />
       </div>
 
       {/* Content */}
-      <h3 className="font-heading text-xl font-semibold mb-3 text-foreground group-hover:text-gradient-gold transition-all duration-300">
+      <h3 className="text-xl font-bold mb-3 text-foreground font-heading">
         {title}
       </h3>
-      <p className="text-muted-foreground text-sm leading-relaxed transition-all duration-300 group-hover:text-foreground/90">
+      <p className="text-muted-foreground text-base leading-relaxed">
         {description}
       </p>
-
-      {/* Decorative line */}
-      <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 transform scale-x-0 group-hover:scale-x-100" />
     </div>
   );
 };
-

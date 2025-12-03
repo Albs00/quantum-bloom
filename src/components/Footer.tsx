@@ -1,46 +1,53 @@
 import { Sparkles, Leaf, Shield, Heart } from "lucide-react";
+import { SectionDivider } from "@/components/ui/section-divider";
 
 export const Footer = () => {
   return (
-    <footer className="py-16 bg-card border-t border-border">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+    <footer className="relative pt-32 pb-16 bg-foreground text-secondary overflow-hidden">
+      <SectionDivider position="top" fill="fill-secondary/10" variant="wave" />
+      
+      {/* Organic background elements */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="grid md:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
-            <a href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary-foreground" />
+            <a href="/" className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-primary" />
               </div>
-              <span className="font-heading text-2xl font-semibold tracking-wide">
-                Green<span className="text-gradient-gold">Lab</span>
+              <span className="font-heading text-2xl font-bold tracking-wide text-secondary">
+                Green<span className="text-primary italic font-serif">Lab</span>
               </span>
             </a>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Quantum cosmeceutics. Where botanical science meets natural magic.
+            <p className="text-secondary/60 text-sm leading-relaxed mb-6">
+              Galenic CBD cosmeceutics — full‑spectrum, made in Italy, 100% natural.
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Explore</h4>
-            <ul className="space-y-3">
+            <h4 className="font-heading text-lg font-semibold mb-6 text-white">Explore</h4>
+            <ul className="space-y-4">
               <li>
-                <a href="#filosofia" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#filosofia" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Philosophy
                 </a>
               </li>
               <li>
-                <a href="#valori" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#valori" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Values
                 </a>
               </li>
               <li>
-                <a href="#ritual-lab" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#ritual-lab" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Ritual Lab
                 </a>
               </li>
               <li>
-                <a href="#tecnologia" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#tecnologia" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Technology
                 </a>
               </li>
@@ -48,25 +55,25 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Support</h4>
-            <ul className="space-y-3">
+            <h4 className="font-heading text-lg font-semibold mb-6 text-white">Support</h4>
+            <ul className="space-y-4">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   FAQ
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Shipping
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Returns
                 </a>
               </li>
@@ -74,20 +81,20 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4 text-foreground">Legal</h4>
-            <ul className="space-y-3">
+            <h4 className="font-heading text-lg font-semibold mb-6 text-white">Legal</h4>
+            <ul className="space-y-4">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Cookie Policy
                 </a>
               </li>
@@ -96,28 +103,28 @@ export const Footer = () => {
         </div>
 
         {/* Trust badges */}
-        <div className="flex flex-wrap justify-center gap-6 py-8 border-t border-b border-border mb-8">
-          <div className="flex items-center gap-2 text-muted-foreground">
+        <div className="flex flex-wrap justify-center gap-8 py-10 border-t border-white/10 mb-8">
+          <div className="flex items-center gap-3 text-secondary/70">
             <Leaf className="w-5 h-5 text-primary" />
-            <span className="text-sm">100% Italian Supply Chain</span>
+            <span className="text-sm font-medium">100% Italian Supply Chain</span>
           </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Shield className="w-5 h-5 text-secondary" />
-            <span className="text-sm">Certified Clinical Trials</span>
+          <div className="flex items-center gap-3 text-secondary/70">
+            <Shield className="w-5 h-5 text-primary" />
+            <span className="text-sm font-medium">Lab Tested</span>
           </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Heart className="w-5 h-5 text-accent" />
-            <span className="text-sm">Cruelty Free</span>
+          <div className="flex items-center gap-3 text-secondary/70">
+            <Heart className="w-5 h-5 text-primary" />
+            <span className="text-sm font-medium">Cruelty Free</span>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center">
-          <p className="text-muted-foreground text-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center pt-8 border-t border-white/5">
+          <p className="text-secondary/40 text-sm">
             © {new Date().getFullYear()} Green Lab. All rights reserved.
           </p>
-          <p className="text-muted-foreground text-xs italic font-heading">
-            "Become the conductor of your own regeneration"
+          <p className="text-secondary/40 text-xs italic font-serif tracking-wider">
+            "Full‑spectrum CBD rituals for healthy, balanced skin"
           </p>
         </div>
       </div>

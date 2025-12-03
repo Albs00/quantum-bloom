@@ -12,23 +12,23 @@ export const Header = () => {
   );
 
   const navLinks = [
-    { href: "#featured-rituals", label: "Shop" },
+    { href: "#ritual-lab", label: "Shop" },
     { href: "#tecnologia", label: "Science" },
     { href: "#filosofia", label: "Philosophy" },
     { href: "#community", label: "Academy" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center group-hover:animate-glow-pulse transition-all">
-              <Sparkles className="w-5 h-5 text-primary-foreground" />
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-heading text-2xl font-semibold tracking-wide">
-              Green<span className="text-gradient-gold">Lab</span>
+            <span className="font-bold text-xl tracking-tight">
+              Green<span className="text-primary">Lab</span>
             </span>
           </a>
 
@@ -38,7 +38,7 @@ export const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm tracking-wide relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </a>
@@ -47,8 +47,17 @@ export const Header = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <CartDrawer />
-            
+            <CartDrawer>
+              <Button variant="ghost" size="icon" className="relative">
+                <ShoppingCart className="w-5 h-5" />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-primary-foreground text-[10px] font-bold flex items-center justify-center rounded-full">
+                    {totalItems}
+                  </span>
+                )}
+              </Button>
+            </CartDrawer>
+
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
@@ -56,24 +65,25 @@ export const Header = () => {
               className="lg:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </Button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        <div
-          className={cn(
-            "lg:hidden overflow-hidden transition-all duration-300",
-            mobileMenuOpen ? "max-h-96 pb-6" : "max-h-0"
-          )}
-        >
-          <nav className="flex flex-col gap-4 pt-4 border-t border-border/50">
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden border-t border-border bg-background">
+          <nav className="flex flex-col p-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+                className="py-3 text-sm font-medium text-foreground hover:text-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
@@ -81,7 +91,7 @@ export const Header = () => {
             ))}
           </nav>
         </div>
-      </div>
+      )}
     </header>
   );
 };
