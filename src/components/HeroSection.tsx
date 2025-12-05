@@ -12,7 +12,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[85vh] md:min-h-screen flex items-center overflow-hidden pt-6 md:pt-0 pb-6 md:pb-0">
+    <section className="relative min-h-[82vh] md:min-h-fullscreen flex items-center overflow-hidden pt-4 md:pt-0 pb-16 md:pb-20">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="hidden md:block absolute inset-0">
@@ -23,7 +23,7 @@ export const HeroSection = () => {
             muted 
             playsInline
             className="w-full h-full object-cover"
-            poster="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?q=80&w=2074&auto=format&fit=crop"
+            poster="https://unsplash.com/it/foto/foglie-verdi-sotto-il-cielo-blu-durante-il-giorno-rQOeT6pr1CY"
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
@@ -48,7 +48,7 @@ export const HeroSection = () => {
           <div className="grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-6">
               <div 
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 md:mb-8 transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 md:mb-8 transition-all duration-1000 transform ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               >
                 <Leaf className="w-4 h-4 text-primary-foreground" />
                 <span className="text-sm text-white tracking-widest uppercase font-medium">Full-Spectrum CBD • Made in Italy</span>
