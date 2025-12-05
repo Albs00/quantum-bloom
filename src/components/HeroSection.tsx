@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Leaf } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroVideo from "@/assets/Greenlabs_Hero.mp4";
+import heroVideoMobile from "@/assets/Greenlabs_verticale.mp4";
 
 export const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -12,20 +13,34 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay */}
-        {/* Video Background */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?q=80&w=2074&auto=format&fit=crop"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video> 
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="hidden md:block absolute inset-0">
+          <video 
+            preload="metadata"
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover"
+            poster="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?q=80&w=2074&auto=format&fit=crop"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        </div>
+        <div className="md:hidden absolute inset-0">
+          <video 
+            preload="none"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-center"
+            poster="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?q=80&w=1200&auto=format&fit=crop"
+          >
+            <source src={heroVideoMobile} type="video/mp4" />
+          </video>
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-20 text-white">

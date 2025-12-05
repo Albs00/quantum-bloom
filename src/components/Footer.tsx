@@ -121,7 +121,7 @@ export const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center pt-8 border-t border-white/5">
           <p className="text-secondary/40 text-sm">
-            © {new Date().getFullYear()} Green Lab. All rights reserved.
+            © {new Date().getFullYear()} Green labs. All rights reserved.
           </p>
           <p className="text-secondary/40 text-xs italic font-serif tracking-wider">
             "Full‑spectrum CBD rituals for healthy, balanced skin"

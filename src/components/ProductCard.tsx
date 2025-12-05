@@ -21,6 +21,27 @@ export const ProductCard = ({ product, index = 0, showBenefit = true }: ProductC
   const price = product.node.priceRange.minVariantPrice;
   const { elementRef, isVisible } = useScrollAnimation({ delay: index * 100 });
   const specs = getSpecsForProduct(product.node.handle, product.node.title);
+  const formatContent = (c?: string) => {
+    if (!c) return undefined;
+    const lower = c.toLowerCase();
+    const hasOz = lower.includes("fl oz") || lower.includes("fl. oz") || lower.includes("fl.oz");
+    if (hasOz) return c.replace(/,/, ".");
+    const mlMatch = c.match(/([0-9]+(?:[.,][0-9]+)?)\s*ml/i);
+    if (!mlMatch) return c;
+    const mlRaw = mlMatch[1].replace(",", ".");
+    const ml = parseFloat(mlRaw);
+    if (!isFinite(ml) || ml <= 0) return c;
+    const oz = ml * 0.033814;
+    const ozStr = oz < 1 ? oz.toFixed(2) : oz.toFixed(1);
+    return `${ml} ml | ${ozStr} fl.OZ`;
+  };
+  const getPreviewBadges = (): string[] => {
+    const out: string[] = [];
+    const formatted = specs?.content ? formatContent(specs.content) : undefined;
+    out.push(formatted || "Format TBD");
+    out.push(specs?.cpnpReference ? `CPNP ${specs.cpnpReference}` : "CPNP TBD");
+    return out;
+  };
   
   // Extract benefit from description (first sentence or custom logic)
   const getBenefit = () => {
@@ -90,16 +111,11 @@ export const ProductCard = ({ product, index = 0, showBenefit = true }: ProductC
           
           {specs && (
             <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-              {specs.content && (
-                <span className="px-2 py-1 rounded-full bg-white/90 text-xs font-medium shadow-sm">
-                  {specs.content}
+              {getPreviewBadges().map((b, i) => (
+                <span key={i} className="px-2 py-1 rounded-full bg-white/90 text-xs font-medium shadow-sm">
+                  {b}
                 </span>
-              )}
-              {specs.cpnpReference && (
-                <span className="px-2 py-1 rounded-full bg-white/70 text-[11px] font-medium shadow-sm">
-                  CPNP {specs.cpnpReference}
-                </span>
-              )}
+              ))}
             </div>
           )}
 

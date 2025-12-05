@@ -37,7 +37,7 @@ export const DifferentiatorsSection = () => {
           )}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            What Makes Green Lab <span className="text-primary relative inline-block">
+            What Makes Green labs <span className="text-primary relative inline-block">
               Different
               <span className="absolute bottom-1 left-0 w-full h-2 bg-accent/40 -z-10 rotate-1"></span>
             </span>

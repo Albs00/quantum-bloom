@@ -90,7 +90,7 @@ export const PhilosophySection = () => {
 
               <div className="pt-4 flex items-center gap-4">
                 <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
-                <span className="text-sm text-primary/80 font-medium italic tracking-wider">Green Lab</span>
+                <span className="text-sm text-primary/80 font-medium italic tracking-wider">Green labs</span>
               </div>
             </div>
           </div>
