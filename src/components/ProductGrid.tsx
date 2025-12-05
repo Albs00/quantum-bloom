@@ -25,8 +25,8 @@ export const ProductGrid = () => {
   }, []);
 
   const LoadingState = () => (
-    <section id="ritual-lab" className="py-24 md:py-32 relative bg-secondary min-h-[60vh]">
-      <div className="container mx-auto px-4">
+    <section id="ritual-lab" className="py-16 md:py-32 relative bg-secondary min-h-[60vh]">
+      <div className="container mx-auto px-3 sm:px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Our <span className="text-primary font-serif italic">Skincare</span>
@@ -43,8 +43,8 @@ export const ProductGrid = () => {
 
   if (products.length === 0) {
     return (
-      <section id="ritual-lab" className="py-24 md:py-32 relative bg-secondary">
-        <div className="container mx-auto px-4">
+      <section id="ritual-lab" className="py-16 md:py-32 relative bg-secondary">
+        <div className="container mx-auto px-3 sm:px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               Our <span className="text-primary font-serif italic">Skincare</span>
@@ -66,19 +66,19 @@ export const ProductGrid = () => {
   }
 
   return (
-    <section id="ritual-lab" className="py-24 md:py-32 relative overflow-hidden bg-secondary">
+    <section id="ritual-lab" className="py-16 md:py-32 relative overflow-hidden bg-secondary">
       {/* Background Decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] left-[-10%] w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-[10%] right-[-10%] w-[50vw] h-[50vw] bg-accent/20 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 relative z-10">
         {/* Section header */}
           <div 
             ref={headerRef}
             className={cn(
-              "text-center mb-16 transition-all duration-700 transform",
+              "text-center mb-10 md:mb-16 transition-all duration-700 transform",
               headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}
           >
@@ -95,7 +95,7 @@ export const ProductGrid = () => {
           </div>
 
         {/* Products grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {products.map((product, index) => (
             <ProductCard key={product.node.id} product={product} index={index} />
           ))}

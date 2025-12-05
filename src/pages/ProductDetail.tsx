@@ -108,8 +108,8 @@ const ProductDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="pt-32 pb-20">
-          <div className="container mx-auto px-4 flex items-center justify-center py-20">
+        <main className="pt-24 md:pt-32 pb-16 md:pb-20">
+          <div className="container mx-auto px-3 sm:px-4 flex items-center justify-center py-16 md:py-20">
             <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
         </main>
@@ -122,8 +122,8 @@ const ProductDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header />
-        <main className="pt-32 pb-20">
-          <div className="container mx-auto px-4 text-center py-20">
+        <main className="pt-24 md:pt-32 pb-16 md:pb-20">
+          <div className="container mx-auto px-3 sm:px-4 text-center py-16 md:py-20">
             <h1 className="font-heading text-3xl mb-4">Product not found</h1>
             <Button variant="quantum" asChild>
               <Link to="/">
@@ -152,8 +152,8 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-28 pb-20">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <main className="pt-24 md:pt-28 pb-16 md:pb-20">
+        <div className="container mx-auto px-3 sm:px-4 max-w-6xl">
           {/* Back link */}
           <Link
             to="/"
@@ -163,7 +163,7 @@ const ProductDetail = () => {
             Back to Shop
           </Link>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
             {/* Images */}
             <div className="space-y-4">
               <div className="aspect-square rounded-xl bg-muted/30 overflow-hidden">
