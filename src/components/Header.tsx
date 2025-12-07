@@ -12,10 +12,10 @@ export const Header = () => {
   );
 
   const navLinks = [
-    { href: "#ritual-lab", label: "Shop" },
-    { href: "#tecnologia", label: "Science" },
-    { href: "#filosofia", label: "Philosophy" },
-    { href: "#community", label: "Academy" },
+    { href: "/#ritual-lab", label: "Shop" },
+    { href: "/cbd-science", label: "Science" },
+    { href: "/#filosofia", label: "Philosophy" },
+    { href: "/#community", label: "Academy" },
   ];
 
   return (
