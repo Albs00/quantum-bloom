@@ -8,6 +8,12 @@ import { useCartStore } from "@/stores/cartStore";
 import { ArrowLeft, ShoppingCart, Loader2, Minus, Plus, Check } from "lucide-react";
 import { toast } from "sonner";
 import { PRODUCT_SPECS, getSpecsForProduct } from "@/lib/productSpecs";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const PRODUCT_QUERY = `
   query GetProduct($handle: String!) {
@@ -360,6 +366,66 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-16 lg:mt-24">
+            <h2 className="font-heading text-2xl md:text-3xl mb-6">Frequently Asked Questions</h2>
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="item-1" className="border-border">
+                <AccordionTrigger className="text-left font-heading text-base hover:no-underline">
+                  What is CBD and how does it benefit the skin?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  CBD (Cannabidiol) is a natural compound derived from hemp plants. It interacts with the skin's endocannabinoid system to help regulate inflammation, sebum production, and cellular regeneration. CBD is known for its antioxidant and calming properties, making it ideal for sensitive, irritated, or aging skin.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-2" className="border-border">
+                <AccordionTrigger className="text-left font-heading text-base hover:no-underline">
+                  Will CBD skincare get me high?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  No. CBD is non-psychoactive and contains no THC (the compound responsible for the "high" effect). Our products are EU-compliant and lab-tested to ensure they contain 0% THC while delivering the full therapeutic benefits of CBD.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-3" className="border-border">
+                <AccordionTrigger className="text-left font-heading text-base hover:no-underline">
+                  Is CBD skincare legal?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  Yes. All GreenLab products are fully legal and compliant with EU cosmetic regulations. Our formulations are registered in the CPNP (Cosmetic Products Notification Portal) and undergo rigorous quality testing.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-4" className="border-border">
+                <AccordionTrigger className="text-left font-heading text-base hover:no-underline">
+                  How often should I use CBD skincare products?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  For optimal results, we recommend incorporating CBD products into your daily skincare ritual. Most products can be used morning and evening. Start with once daily to see how your skin responds, then adjust according to your needs.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-5" className="border-border">
+                <AccordionTrigger className="text-left font-heading text-base hover:no-underline">
+                  Are your products suitable for sensitive skin?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  Yes. CBD is naturally soothing and anti-inflammatory, making it particularly beneficial for sensitive or reactive skin types. All our formulations are dermatologically tested, free from parabens, and crafted with gentle, botanical ingredients.
+                </AccordionContent>
+              </AccordionItem>
+              
+              <AccordionItem value="item-6" className="border-border">
+                <AccordionTrigger className="text-left font-heading text-base hover:no-underline">
+                  What makes GreenLab different from other CBD brands?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground leading-relaxed">
+                  GreenLab combines full-spectrum CBD with advanced Giantec biotechnologies, creating synergistic formulas that enhance absorption and efficacy. Our products are Made in Italy, lab-tested, and formulated with a holistic approach that considers both the physical and energetic aspects of skincare.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </main>

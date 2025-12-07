@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -12,7 +12,11 @@ import {
 import { ShoppingCart, Minus, Plus, Trash2, ExternalLink, Loader2, Sparkles } from "lucide-react";
 import { useCartStore } from "@/stores/cartStore";
 
-export const CartDrawer = () => {
+interface CartDrawerProps {
+  children?: ReactNode;
+}
+
+export const CartDrawer = ({ children }: CartDrawerProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { 
     items, 
@@ -41,14 +45,16 @@ export const CartDrawer = () => {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="quantum" size="icon" className="relative">
-          <ShoppingCart className="h-5 w-5" />
-          {totalItems > 0 && (
-            <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-secondary text-secondary-foreground">
-              {totalItems}
-            </Badge>
-          )}
-        </Button>
+        {children || (
+          <Button variant="quantum" size="icon" className="relative">
+            <ShoppingCart className="h-5 w-5" />
+            {totalItems > 0 && (
+              <Badge className="absolute -top-2 -right-2 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs bg-secondary text-secondary-foreground">
+                {totalItems}
+              </Badge>
+            )}
+          </Button>
+        )}
       </SheetTrigger>
       
       <SheetContent className="w-full sm:max-w-lg flex flex-col h-full bg-card border-border">
