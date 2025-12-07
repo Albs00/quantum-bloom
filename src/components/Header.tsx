@@ -14,7 +14,7 @@ export const Header = () => {
   const navLinks = [
     { href: "/#ritual-lab", label: "Shop" },
     { href: "/cbd-science", label: "Science" },
-    { href: "/#filosofia", label: "Philosophy" },
+    { href: "/about", label: "About" },
     { href: "/#community", label: "Academy" },
   ];
 
