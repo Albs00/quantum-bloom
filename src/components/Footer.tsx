@@ -58,23 +58,18 @@ export const Footer = () => {
             <h4 className="font-heading text-lg font-semibold mb-6 text-white">Support</h4>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
-                  Contact Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
+                <a href="/faq" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   FAQ
                 </a>
               </li>
               <li>
-                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
-                  Shipping
+                <a href="/shipping-returns" className="text-secondary/60 hover:text-primary transition-colors text-sm">
+                  Shipping & Returns
                 </a>
               </li>
               <li>
-                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
-                  Returns
+                <a href="/compliance" className="text-secondary/60 hover:text-primary transition-colors text-sm">
+                  Compliance & Certifications
                 </a>
               </li>
             </ul>
@@ -84,17 +79,17 @@ export const Footer = () => {
             <h4 className="font-heading text-lg font-semibold mb-6 text-white">Legal</h4>
             <ul className="space-y-4">
               <li>
-                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
+                <a href="/privacy-policy" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
+                <a href="/terms-of-service" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="#" className="text-secondary/60 hover:text-primary transition-colors text-sm">
+                <a href="/cookie-policy" className="text-secondary/60 hover:text-primary transition-colors text-sm">
                   Cookie Policy
                 </a>
               </li>
