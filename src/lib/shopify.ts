@@ -1,9 +1,16 @@
 import { toast } from "sonner";
 
-const SHOPIFY_API_VERSION = '2025-07';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = 'lovable-project-s138a.myshopify.com';
-const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = '2da4228c25a7b6e41286ebcf9f01faa1';
+const SHOPIFY_API_VERSION = import.meta.env.VITE_SHOPIFY_API_VERSION ?? '2025-07';
+const SHOPIFY_STORE_PERMANENT_DOMAIN = import.meta.env.VITE_SHOPIFY_DOMAIN as string | undefined;
+const SHOPIFY_STOREFRONT_TOKEN = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN as string | undefined;
+
+function getStorefrontUrl() {
+  if (!SHOPIFY_STORE_PERMANENT_DOMAIN) {
+    throw new Error("Missing VITE_SHOPIFY_DOMAIN in environment");
+  }
+  return `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
+}
+const SHOPIFY_STOREFRONT_URL = getStorefrontUrl();
 
 export interface ShopifyProduct {
   node: {
@@ -50,6 +57,9 @@ export interface ShopifyProduct {
 }
 
 export async function storefrontApiRequest(query: string, variables: Record<string, unknown> = {}) {
+  if (!SHOPIFY_STOREFRONT_TOKEN) {
+    throw new Error("Missing VITE_SHOPIFY_STOREFRONT_TOKEN in environment");
+  }
   const response = await fetch(SHOPIFY_STOREFRONT_URL, {
     method: 'POST',
     headers: {
