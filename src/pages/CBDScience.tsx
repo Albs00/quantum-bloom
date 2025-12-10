@@ -59,7 +59,7 @@ const scientificReferences = {
     title: "SCCS Scientific Opinion on Cannabidiol (CBD)",
     source: "Scientific Committee on Consumer Safety (EU)",
     year: 2025,
-    url: "https://health.ec.europa.eu/publications/sccs-scientific-opinion-cannabidiol-cbd-casec-no-13956-29-1-689-176-3-used-cosmetic-pro",
+    url: "https://health.ec.europa.eu/publications/sccs-scientific-opinion-cannabidiol-cbd-casec-no-13956-29-1-689-176-3-used-cosmetic-products_en",
     authority: "Official EU regulatory body"
   },
   ecsSkin2009: {
